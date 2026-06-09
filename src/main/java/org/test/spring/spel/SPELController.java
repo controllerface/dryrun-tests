@@ -5,8 +5,10 @@ import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.http.MediaType;
+import org.springframework.javapoet.CodeBlock;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -79,5 +81,11 @@ public class SPELController
         parsedExpression.setValue(CONTEXT, null, expression); // CWE 95
         System.out.println(parsedExpression.getExpressionString());
         return "OK";
+    }
+
+    @PostMapping(value = "/echo", produces = MediaType.TEXT_HTML_VALUE)
+    public String echo(@RequestBody String input, @RequestBody String[] args)
+    {
+        return input;
     }
 }
