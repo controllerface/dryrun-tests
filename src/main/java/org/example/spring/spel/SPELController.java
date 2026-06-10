@@ -1,11 +1,10 @@
-package org.test.spring.spel;
+package org.example.spring.spel;
 
 import org.intellij.lang.annotations.Language;
 import org.springframework.expression.Expression;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
 import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.http.MediaType;
-import org.springframework.javapoet.CodeBlock;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

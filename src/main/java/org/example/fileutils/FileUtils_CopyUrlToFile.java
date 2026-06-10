@@ -1,6 +1,6 @@
-package org.test.fileutils;
+package org.example.fileutils;
 
-import org.test.VulnerableServlet;
+import org.example.VulnerableServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;
@@ -10,9 +10,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
-public class FileUtils_CopyUrlToFile_wTimeout extends VulnerableServlet
+public class FileUtils_CopyUrlToFile extends VulnerableServlet
 {
-    private static final FileUtils_CopyUrlToFile_wTimeout servlet = new FileUtils_CopyUrlToFile_wTimeout();
+    private static final FileUtils_CopyUrlToFile servlet = new FileUtils_CopyUrlToFile();
 
     private static final File DOWNLOADS = new File("/home/safeuiser/downloads");
 
@@ -22,7 +22,7 @@ public class FileUtils_CopyUrlToFile_wTimeout extends VulnerableServlet
         var bytes = req.getInputStream().readAllBytes();
         var url_string = new String(bytes, Charset.defaultCharset());
         var url = new URL(url_string);
-        FileUtils.copyURLToFile(url, DOWNLOADS, 30_000, 30_000);
+        FileUtils.copyURLToFile(url, DOWNLOADS);
         resp.setStatus(200);
         resp.getOutputStream().println("File copied");
     }

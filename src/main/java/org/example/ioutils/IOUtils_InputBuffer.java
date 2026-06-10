@@ -1,9 +1,9 @@
-package org.test.ioutils;
+package org.example.ioutils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
-import org.test.VulnerableServlet;
+import org.example.VulnerableServlet;
 
 import java.io.File;
 import java.io.IOException;

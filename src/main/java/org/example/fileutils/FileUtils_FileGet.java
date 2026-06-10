@@ -1,9 +1,9 @@
-package org.test.fileutils;
+package org.example.fileutils;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;
-import org.test.VulnerableServlet;
+import org.example.VulnerableServlet;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
