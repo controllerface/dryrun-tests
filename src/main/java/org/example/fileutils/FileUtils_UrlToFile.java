@@ -1,6 +1,6 @@
-package org.test.fileutils;
+package org.example.fileutils;
 
-import org.test.VulnerableServlet;
+import org.example.VulnerableServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;

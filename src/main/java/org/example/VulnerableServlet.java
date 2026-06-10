@@ -1,4 +1,4 @@
-package org.test;
+package org.example;
 
 import jakarta.servlet.AsyncContext;
 import jakarta.servlet.DispatcherType;
