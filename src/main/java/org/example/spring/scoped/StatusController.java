@@ -14,14 +14,14 @@ public class StatusController
     private final ScopedValue<String> data = ScopedValue.newInstance();
 
     @PostMapping(value = "/data_call", produces = MediaType.TEXT_HTML_VALUE)
-    public String data(@RequestBody String input) throws Exception
+    public String data(@RequestBody String input)
     {
         return ScopedValue.where(data, input)
             .call(data::get);
     }
 
     @PostMapping(value = "/buffer_status", produces = MediaType.TEXT_HTML_VALUE)
-    public String status(@RequestBody String input) throws Exception
+    public String status(@RequestBody String input)
     {
         var buffer = new StringBuilder();
         ScopedValue.where(buffer_out, buffer)
