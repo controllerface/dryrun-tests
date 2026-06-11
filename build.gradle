@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '4.0.0-RC2'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
 
 group = 'com.veracode'
@@ -16,6 +18,14 @@ dependencies {
     implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
     implementation 'commons-io:commons-io:2.19.0'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'io.r2dbc:r2dbc-h2'
+
+    compileOnly 'org.jetbrains:annotations:26.0.2'
+
 }
 
 test {
