@@ -1,24 +1,26 @@
-package org.test.ioutils;
+package org.example.fileutils;
 
-import org.test.VulnerableServlet;
+import org.example.VulnerableServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.commons.io.IOUtils;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 
-public class IOUtils_InputReader_wSize extends VulnerableServlet
+public class FileUtils_FileGet_wDir extends VulnerableServlet
 {
-    private static final IOUtils_InputReader_wSize servlet = new IOUtils_InputReader_wSize();
+    private static final FileUtils_FileGet_wDir servlet = new FileUtils_FileGet_wDir();
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
-        var buffer = IOUtils.buffer(req.getReader(), 256);
-        var filename = buffer.readLine();
-        var file = new File(filename);
+        var bytes = req.getInputStream().readAllBytes();
+        var filename = new String(bytes, Charset.defaultCharset());
+        var parent = new File("parent_dir");
+        var file = FileUtils.getFile(parent, filename);
         resp.setStatus(200);
         resp.getOutputStream().println(Files.readString(file.toPath()));
     }
